@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Training & Certification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --pharmacy-blue: #0066cc;
+            --pharmacy-light-blue: #4d94ff;
+            --medical-green: #28a745;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--pharmacy-blue), var(--pharmacy-light-blue));
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            color: var(--pharmacy-blue);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #666;
+        }
+        
+        /* Training Modules */
+        .training-modules {
+            padding: 60px 0;
+            background: var(--light-gray);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--pharmacy-blue);
+            font-size: 2.2rem;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .module-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .module-icon {
+            font-size: 2.5rem;
+            color: var(--pharmacy-blue);
+            margin-bottom: 20px;
+        }
+        
+        .module-title {
+            font-size: 1.4rem;
+            color: var(--pharmacy-blue);
+            margin-bottom: 15px;
+        }
+        
+        .module-duration {
+            background: #e6f2ff;
+            color: var(--pharmacy-blue);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .module-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .module-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .module-features i {
+            color: var(--medical-green);
+            margin-right: 10px;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+        }
+        
+        .step-number {
+            background: var(--pharmacy-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        /* Certificate Preview */
+        .certificate-preview {
+            padding: 60px 0;
+            background: var(--light-gray);
+            text-align: center;
+        }
+        
+        .certificate-container {
+            background: white;
+            border: 20px solid #f0e6d2;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .certificate-header {
+            border-bottom: 3px solid var(--pharmacy-blue);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .certificate-title {
+            font-size: 2.5rem;
+            color: var(--pharmacy-blue);
+            margin-bottom: 10px;
+        }
+        
+        .certificate-body {
+            margin-bottom: 30px;
+        }
+        
+        .certificate-name {
+            font-size: 2rem;
+            margin: 20px 0;
+            color: var(--dark-gray);
+        }
+        
+        .certificate-course {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .certificate-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .signature {
+            text-align: center;
+        }
+        
+        .signature-line {
+            border-top: 2px solid #333;
+            width: 200px;
+            margin: 40px auto 10px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--pharmacy-blue), var(--pharmacy-light-blue));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .whatsapp-button {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        
+        .whatsapp-button i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .whatsapp-button:hover {
+            background: #128C7E;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .steps {
+                flex-direction: column;
+            }
+            
+            .certificate-footer {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-mortar-pestle"></i>
+                <div class="logo-text">PharmaCert</div>
+            </div>
+            <p>Continuing Education for Pharmacy Professionals</p>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Advanced Pharmacy Training & Certification</h1>
+            <p>Earn accredited certificates through WhatsApp-based training modules designed specifically for pharmacy practitioners. Enhance your skills and advance your career.</p>
+            <button class="whatsapp-button" onclick="startTraining()">
+                <i class="fab fa-whatsapp"></i> Start Training on WhatsApp
+            </button>
+        </div>
+    </section>
+
+    <!-- Training Modules -->
+    <section class="training-modules">
+        <div class="container">
+            <h2 class="section-title">Available Training Modules</h2>
+            <div class="modules-grid">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <i class="fas fa-prescription-bottle-alt"></i>
+                    </div>
+                    <h3 class="module-title">Medication Safety & Error Prevention</h3>
+                    <span class="module-duration">4 Hours • 0.4 CEUs</span>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> Drug interaction analysis</li>
+                        <li><i class="fas fa-check"></i> Dispensing error prevention</li>
+                        <li><i class="fas fa-check"></i> Patient counseling techniques</li>
+                        <li><i class="fas fa-check"></i> Case studies & assessments</li>
+                    </ul>
+                    <button class="whatsapp-button" onclick="enrollModule('Medication Safety')">
+                        <i class="fab fa-whatsapp"></i> Enroll Now
+                    </button>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h3 class="module-title">Clinical Pharmacology Updates</h3>
+                    <span class="module-duration">6 Hours • 0.6 CEUs</span>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> New drug approvals & indications</li>
+                        <li><i class="fas fa-check"></i> Therapeutic guidelines updates</li>
+                        <li><i class="fas fa-check"></i> Pharmacogenomics applications</li>
+                        <li><i class="fas fa-check"></i> Interactive drug knowledge tests</li>
+                    </ul>
+                    <button class="whatsapp-button" onclick="enrollModule('Clinical Pharmacology')">
+                        <i class="fab fa-whatsapp"></i> Enroll Now
+                    </button>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 class="module-title">Patient Communication & Counseling</h3>
+                    <span class="module-duration">3 Hours • 0.3 CEUs</span>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> Effective patient education</li>
+                        <li><i class="fas fa-check"></i> Cultural competency training</li>
+                        <li><i class="fas fa-check"></i> Medication adherence strategies</li>
+                        <li><i class="fas fa-check"></i> Role-playing scenarios</li>
+                    </ul>
+                    <button class="whatsapp-button" onclick="enrollModule('Patient Communication')">
+                        <i class="fab fa-whatsapp"></i> Enroll Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How WhatsApp Training Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Enroll via WhatsApp</h3>
+                    <p>Send "START" to our WhatsApp Business number and choose your training module</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Receive Daily Lessons</h3>
+                    <p>Get bite-sized training content, videos, and quizzes delivered to your WhatsApp daily</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Complete Assessments</h3>
+                    <p>Take interactive quizzes and case studies directly in WhatsApp</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Get Certified</h3>
+                    <p>Receive your digital certificate upon successful completion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Preview -->
+    <section class="certificate-preview">
+        <div class="container">
+            <h2 class="section-title">Earn Your Digital Certificate</h2>
+            <div class="certificate-container">
+                <div class="certificate-header">
+                    <div class="certificate-title">Certificate of Completion</div>
+                    <p>This is to certify that</p>
+                </div>
+                <div class="certificate-body">
+                    <div class="certificate-name">[Pharmacist Name]</div>
+                    <p>has successfully completed the</p>
+                    <div class="certificate-course">Advanced Medication Safety Training</div>
+                    <p>with a passing grade and demonstrated proficiency in pharmaceutical care standards</p>
+                </div>
+                <div class="certificate-footer">
+                    <div class="signature">
+                        <div class="signature-line"></div>
+                        <p>Dr. Sarah Johnson<br>Director of Pharmacy Education</p>
+                    </div>
+                    <div class="signature">
+                        <div class="signature-line"></div>
+                        <p>Date of Completion<br>[Completion Date]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Advance Your Pharmacy Career?</h2>
+            <p>Join hundreds of pharmacy professionals who have enhanced their skills through our WhatsApp training programs.</p>
+            <button class="whatsapp-button" onclick="startTraining()">
+                <i class="fab fa-whatsapp"></i> Start Learning Today
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Accreditation Info</a>
+                <a href="#">Contact Support</a>
+                <a href="#">FAQ</a>
+            </div>
+            <p>&copy; 2023 PharmaCert. All rights reserved. Accredited by International Pharmacy Association.</p>
+        </div>
+    </footer>
+
+    <script>
+        // WhatsApp Integration Functions
+        function startTraining() {
+            const phoneNumber = "1234567890"; // Replace with your WhatsApp Business number
+            const message = "Hi! I'm interested in pharmacy training. Please send me more information.";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        function enrollModule(moduleName) {
+            const phoneNumber = "1234567890"; // Replace with your WhatsApp Business number
+            const message = `I would like to enroll in the ${moduleName} training module.`;
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Simulate user progress (for demo purposes)
+        function simulateUserFlow() {
+            console.log("WhatsApp Training User Flow:");
+            console.log("1. User visits this webpage");
+            console.log("2. Clicks 'Start Training on WhatsApp'");
+            console.log("3. Redirected to WhatsApp with pre-filled message");
+            console.log("4. Your WhatsApp Business auto-reply kicks in");
+            console.log("5. User selects training module");
+            console.log("6. Daily lessons delivered via WhatsApp");
+            console.log("7. User completes quizzes in WhatsApp");
+            console.log("8. Certificate generated and delivered");
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            simulateUserFlow();
+        });
+    </script>
+</body>
+</html>
